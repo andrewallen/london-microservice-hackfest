@@ -3,11 +3,11 @@
 $subscription = "Internal Development (anallen@microsoft.com)"
 
 $Location = "westeurope"
-$Name = "hackfest-sf-5n"
+$Name = "hackfest-sf-c1"
 $ResourceGroupName = "$Name-$Location-rg"
 $ClusterSize = 1
 
-$VmSku = "Standard_D2_V2"
+$VmSku = "Standard_A2_v2" # Standard_A2_v2, Standard_D2_V2
 $OS = "WindowsServer2016DatacenterwithContainers" # 
 $VmUserName = "localAdmin"
 $VmPassword = "Password1234!" | ConvertTo-SecureString -AsPlainText -Force
