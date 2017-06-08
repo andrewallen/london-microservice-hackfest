@@ -1,0 +1,793 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachineScaleSets_nt1vm_name": {
+            "defaultValue": "nt1vm",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_name": {
+            "defaultValue": "LB-hackfest-sf-c1-nt1vm",
+            "type": "String"
+        },
+        "publicIPAddresses_PublicIP_LB_FE_0_name": {
+            "defaultValue": "PublicIP-LB-FE-0",
+            "type": "String"
+        },
+        "virtualNetworks_VNet_name": {
+            "defaultValue": "VNet",
+            "type": "String"
+        },
+        "clusters_hackfest_sf_c1_name": {
+            "defaultValue": "hackfest-sf-c1",
+            "type": "String"
+        },
+        "storageAccounts_fymlxwznkmvse100_name": {
+            "defaultValue": "fymlxwznkmvse100",
+            "type": "String"
+        },
+        "storageAccounts_fymlxwznkmvse101_name": {
+            "defaultValue": "fymlxwznkmvse101",
+            "type": "String"
+        },
+        "storageAccounts_fymlxwznkmvse102_name": {
+            "defaultValue": "fymlxwznkmvse102",
+            "type": "String"
+        },
+        "storageAccounts_fymlxwznkmvse103_name": {
+            "defaultValue": "fymlxwznkmvse103",
+            "type": "String"
+        },
+        "storageAccounts_fymlxwznkmvse104_name": {
+            "defaultValue": "fymlxwznkmvse104",
+            "type": "String"
+        },
+        "storageAccounts_fymlxwznkmvse2_name": {
+            "defaultValue": "fymlxwznkmvse2",
+            "type": "String"
+        },
+        "storageAccounts_fymlxwznkmvse3_name": {
+            "defaultValue": "fymlxwznkmvse3",
+            "type": "String"
+        },
+        "virtualMachineScaleSets_nt1vm_id": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-kv-westeurope-rg/providers/Microsoft.KeyVault/vaults/hackfest-kv-westeurope",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/frontendIPConfigurations/LoadBalancerIPConfig",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_1": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/backendAddressPools/LoadBalancerBEAddressPool",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_2": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/probes/FabricGatewayProbe",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_3": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/frontendIPConfigurations/LoadBalancerIPConfig",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_4": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/backendAddressPools/LoadBalancerBEAddressPool",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_5": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/probes/FabricHttpGatewayProbe",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_6": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/frontendIPConfigurations/LoadBalancerIPConfig",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_7": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/backendAddressPools/LoadBalancerBEAddressPool",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_8": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/probes/AppPortProbe1",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_9": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/frontendIPConfigurations/LoadBalancerIPConfig",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_10": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/backendAddressPools/LoadBalancerBEAddressPool",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_11": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/probes/AppPortProbe2",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_12": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/frontendIPConfigurations/LoadBalancerIPConfig",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_13": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/frontendIPConfigurations/LoadBalancerIPConfig",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_14": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/frontendIPConfigurations/LoadBalancerIPConfig",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_15": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/frontendIPConfigurations/LoadBalancerIPConfig",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_16": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/frontendIPConfigurations/LoadBalancerIPConfig",
+            "type": "String"
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_17": {
+            "defaultValue": "/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm/frontendIPConfigurations/LoadBalancerIPConfig",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Compute/virtualMachineScaleSets/nt1vm'.",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "sku": {
+                "name": "Standard_A2_v2",
+                "tier": "Standard",
+                "capacity": 5
+            },
+            "name": "[parameters('virtualMachineScaleSets_nt1vm_name')]",
+            "apiVersion": "2016-04-30-preview",
+            "location": "westeurope",
+            "tags": {
+                "resourceType": "Service Fabric",
+                "clusterName": "hackfest-sf-c1"
+            },
+            "scale": null,
+            "properties": {
+                "singlePlacementGroup": true,
+                "upgradePolicy": {
+                    "mode": "Automatic"
+                },
+                "virtualMachineProfile": {
+                    "osProfile": {
+                        "computerNamePrefix": "[parameters('virtualMachineScaleSets_nt1vm_name')]",
+                        "adminUsername": "localAdmin",
+                        "windowsConfiguration": {
+                            "provisionVMAgent": true,
+                            "enableAutomaticUpdates": true
+                        },
+                        "secrets": [
+                            {
+                                "sourceVault": {
+                                    "id": "[parameters('virtualMachineScaleSets_nt1vm_id')]"
+                                },
+                                "vaultCertificates": [
+                                    {
+                                        "certificateUrl": "https://hackfest-kv-westeurope.vault.azure.net:443/secrets/hackfest-sf-c1-westeurope-rg20170608104037/3b7352fabffe4494b0910f98ec614522",
+                                        "certificateStore": "My"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "storageProfile": {
+                        "osDisk": {
+                            "vhdContainers": [
+                                "https://fymlxwznkmvse100.blob.core.windows.net/vhds",
+                                "https://fymlxwznkmvse101.blob.core.windows.net/vhds",
+                                "https://fymlxwznkmvse102.blob.core.windows.net/vhds",
+                                "https://fymlxwznkmvse103.blob.core.windows.net/vhds",
+                                "https://fymlxwznkmvse104.blob.core.windows.net/vhds"
+                            ],
+                            "name": "vmssosdisk",
+                            "createOption": "FromImage",
+                            "caching": "ReadOnly"
+                        },
+                        "imageReference": {
+                            "publisher": "MicrosoftWindowsServer",
+                            "offer": "WindowsServer",
+                            "sku": "2016-Datacenter-with-Containers",
+                            "version": "latest"
+                        }
+                    },
+                    "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                            {
+                                "name": "NIC-0",
+                                "properties": {
+                                    "primary": true,
+                                    "ipConfigurations": [
+                                        {
+                                            "name": "NIC-0",
+                                            "properties": {
+                                                "subnet": {
+                                                    "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_VNet_name')), '/subnets/Subnet-0')]"
+                                                },
+                                                "loadBalancerBackendAddressPools": [
+                                                    {
+                                                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_name')), '/backendAddressPools/LoadBalancerBEAddressPool')]"
+                                                    }
+                                                ],
+                                                "loadBalancerInboundNatPools": [
+                                                    {
+                                                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_name')), '/inboundNatPools/LoadBalancerBEAddressNatPool')]"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "properties": {
+                                    "publisher": "Microsoft.Azure.ServiceFabric",
+                                    "type": "ServiceFabricNode",
+                                    "typeHandlerVersion": "1.0",
+                                    "autoUpgradeMinorVersion": false,
+                                    "settings": {
+                                        "clusterEndpoint": "https://westeurope.servicefabric.azure.com/runtime/clusters/aa84e945-b18b-459c-9f36-e6e36eb42326",
+                                        "nodeTypeRef": "[parameters('virtualMachineScaleSets_nt1vm_name')]",
+                                        "dataPath": "D:\\\\SvcFab",
+                                        "durabilityLevel": "Bronze",
+                                        "nicPrefixOverride": "10.0.0.0/24",
+                                        "certificate": {
+                                            "thumbprint": "D42C980D768105634EB94D610EF7FDBB3DE2FC8E",
+                                            "x509StoreName": "My"
+                                        }
+                                    }
+                                },
+                                "name": "ServiceFabricNodeVmExt_vmNodeType0Name"
+                            },
+                            {
+                                "properties": {
+                                    "publisher": "Microsoft.Azure.Diagnostics",
+                                    "type": "IaaSDiagnostics",
+                                    "typeHandlerVersion": "1.5",
+                                    "autoUpgradeMinorVersion": true,
+                                    "settings": {
+                                        "WadCfg": {
+                                            "DiagnosticMonitorConfiguration": {
+                                                "overallQuotaInMB": "50000",
+                                                "EtwProviders": {
+                                                    "EtwEventSourceProviderConfiguration": [
+                                                        {
+                                                            "provider": "Microsoft-ServiceFabric-Actors",
+                                                            "scheduledTransferKeywordFilter": "1",
+                                                            "scheduledTransferPeriod": "PT5M",
+                                                            "DefaultEvents": {
+                                                                "eventDestination": "ServiceFabricReliableActorEventTable"
+                                                            }
+                                                        },
+                                                        {
+                                                            "provider": "Microsoft-ServiceFabric-Services",
+                                                            "scheduledTransferPeriod": "PT5M",
+                                                            "DefaultEvents": {
+                                                                "eventDestination": "ServiceFabricReliableServiceEventTable"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "EtwManifestProviderConfiguration": [
+                                                        {
+                                                            "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                                                            "scheduledTransferLogLevelFilter": "Information",
+                                                            "scheduledTransferKeywordFilter": "4611686018427387904",
+                                                            "scheduledTransferPeriod": "PT5M",
+                                                            "DefaultEvents": {
+                                                                "eventDestination": "ServiceFabricSystemEventTable"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "StorageAccount": "fymlxwznkmvse3"
+                                    }
+                                },
+                                "name": "VMDiagnosticsVmExt_vmNodeType0Name"
+                            }
+                        ]
+                    }
+                },
+                "overprovision": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_VNet_name'))]",
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/loadBalancers/LB-hackfest-sf-c1-nt1vm'.",
+            "type": "Microsoft.Network/loadBalancers",
+            "name": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_name')]",
+            "apiVersion": "2017-03-01",
+            "location": "westeurope",
+            "tags": {
+                "resourceType": "Service Fabric",
+                "clusterName": "hackfest-sf-c1"
+            },
+            "scale": null,
+            "properties": {
+                "frontendIPConfigurations": [
+                    {
+                        "name": "LoadBalancerIPConfig",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_PublicIP_LB_FE_0_name'))]"
+                            }
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "LoadBalancerBEAddressPool"
+                    }
+                ],
+                "loadBalancingRules": [
+                    {
+                        "name": "LBRule",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id')]"
+                            },
+                            "frontendPort": 19000,
+                            "backendPort": 19000,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 5,
+                            "protocol": "Tcp",
+                            "loadDistribution": "Default",
+                            "backendAddressPool": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_1')]"
+                            },
+                            "probe": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_2')]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "LBHttpRule",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_3')]"
+                            },
+                            "frontendPort": 19080,
+                            "backendPort": 19080,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 5,
+                            "protocol": "Tcp",
+                            "loadDistribution": "Default",
+                            "backendAddressPool": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_4')]"
+                            },
+                            "probe": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_5')]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "AppPortLBRule1",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_6')]"
+                            },
+                            "frontendPort": 80,
+                            "backendPort": 80,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 5,
+                            "protocol": "Tcp",
+                            "loadDistribution": "Default",
+                            "backendAddressPool": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_7')]"
+                            },
+                            "probe": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_8')]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "AppPortLBRule2",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_9')]"
+                            },
+                            "frontendPort": 8081,
+                            "backendPort": 8081,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 5,
+                            "protocol": "Tcp",
+                            "loadDistribution": "Default",
+                            "backendAddressPool": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_10')]"
+                            },
+                            "probe": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_11')]"
+                            }
+                        }
+                    }
+                ],
+                "probes": [
+                    {
+                        "name": "FabricGatewayProbe",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "port": 19000,
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2
+                        }
+                    },
+                    {
+                        "name": "FabricHttpGatewayProbe",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "port": 19080,
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2
+                        }
+                    },
+                    {
+                        "name": "AppPortProbe1",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "port": 80,
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2
+                        }
+                    },
+                    {
+                        "name": "AppPortProbe2",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "port": 8081,
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2
+                        }
+                    }
+                ],
+                "inboundNatRules": [
+                    {
+                        "name": "LoadBalancerBEAddressNatPool.0",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_12')]"
+                            },
+                            "frontendPort": 3389,
+                            "backendPort": 3389,
+                            "protocol": "Tcp"
+                        }
+                    },
+                    {
+                        "name": "LoadBalancerBEAddressNatPool.1",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_13')]"
+                            },
+                            "frontendPort": 3390,
+                            "backendPort": 3389,
+                            "protocol": "Tcp"
+                        }
+                    },
+                    {
+                        "name": "LoadBalancerBEAddressNatPool.2",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_14')]"
+                            },
+                            "frontendPort": 3391,
+                            "backendPort": 3389,
+                            "protocol": "Tcp"
+                        }
+                    },
+                    {
+                        "name": "LoadBalancerBEAddressNatPool.3",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_15')]"
+                            },
+                            "frontendPort": 3392,
+                            "backendPort": 3389,
+                            "protocol": "Tcp"
+                        }
+                    },
+                    {
+                        "name": "LoadBalancerBEAddressNatPool.4",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_16')]"
+                            },
+                            "frontendPort": 3393,
+                            "backendPort": 3389,
+                            "protocol": "Tcp"
+                        }
+                    }
+                ],
+                "outboundNatRules": [],
+                "inboundNatPools": [
+                    {
+                        "name": "LoadBalancerBEAddressNatPool",
+                        "properties": {
+                            "frontendPortRangeStart": 3389,
+                            "frontendPortRangeEnd": 4500,
+                            "backendPort": 3389,
+                            "protocol": "Tcp",
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('loadBalancers_LB_hackfest_sf_c1_nt1vm_id_17')]"
+                            }
+                        }
+                    }
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_PublicIP_LB_FE_0_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/publicIPAddresses/PublicIP-LB-FE-0'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_PublicIP_LB_FE_0_name')]",
+            "apiVersion": "2017-03-01",
+            "location": "westeurope",
+            "tags": {
+                "resourceType": "Service Fabric",
+                "clusterName": "hackfest-sf-c1"
+            },
+            "scale": null,
+            "properties": {
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "hackfest-sf-c1"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Network/virtualNetworks/VNet'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_VNet_name')]",
+            "apiVersion": "2017-03-01",
+            "location": "westeurope",
+            "tags": {
+                "resourceType": "Service Fabric",
+                "clusterName": "hackfest-sf-c1"
+            },
+            "scale": null,
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "Subnet-0",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourcegroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.ServiceFabric/clusters/hackfest-sf-c1'.",
+            "type": "Microsoft.ServiceFabric/clusters",
+            "name": "[parameters('clusters_hackfest_sf_c1_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "westeurope",
+            "tags": {
+                "resourceType": "Service Fabric",
+                "clusterName": "hackfest-sf-c1"
+            },
+            "scale": null,
+            "properties": {
+                "clusterCodeVersion": "5.6.210.9494",
+                "managementEndpoint": "[concat('https://', parameters('clusters_hackfest_sf_c1_name'),'.westeurope.cloudapp.azure.com:19080')]",
+                "certificate": {
+                    "thumbprint": "D42C980D768105634EB94D610EF7FDBB3DE2FC8E",
+                    "x509StoreName": "My"
+                },
+                "clientCertificateThumbprints": [],
+                "clientCertificateCommonNames": [],
+                "fabricSettings": [
+                    {
+                        "name": "Security",
+                        "parameters": [
+                            {
+                                "name": "ClusterProtectionLevel",
+                                "value": "EncryptAndSign"
+                            }
+                        ]
+                    }
+                ],
+                "upgradeDescription": {
+                    "upgradeReplicaSetCheckTimeout": "10675199.02:48:05.4775807",
+                    "healthCheckWaitDuration": "00:05:00",
+                    "healthCheckStableDuration": "00:05:00",
+                    "healthCheckRetryTimeout": "00:45:00",
+                    "upgradeTimeout": "12:00:00",
+                    "upgradeDomainTimeout": "02:00:00",
+                    "healthPolicy": {
+                        "maxPercentUnhealthyNodes": 100,
+                        "maxPercentUnhealthyApplications": 100
+                    },
+                    "deltaHealthPolicy": {
+                        "maxPercentDeltaUnhealthyNodes": 0,
+                        "maxPercentUpgradeDomainDeltaUnhealthyNodes": 0,
+                        "maxPercentDeltaUnhealthyApplications": 0
+                    }
+                },
+                "diagnosticsStorageAccountConfig": {
+                    "storageAccountName": "fymlxwznkmvse2",
+                    "protectedAccountKeyName": "StorageAccountKey1",
+                    "blobEndpoint": "[concat('https', '://', parameters('storageAccounts_fymlxwznkmvse2_name'), '.blob.core.windows.net', '/')]",
+                    "queueEndpoint": "[concat('https', '://', parameters('storageAccounts_fymlxwznkmvse2_name'), '.queue.core.windows.net', '/')]",
+                    "tableEndpoint": "[concat('https', '://', parameters('storageAccounts_fymlxwznkmvse2_name'), '.table.core.windows.net', '/')]"
+                },
+                "nodeTypes": [
+                    {
+                        "name": "nt1vm",
+                        "clientConnectionEndpointPort": 19000,
+                        "httpGatewayEndpointPort": 19080,
+                        "applicationPorts": {
+                            "startPort": 20000,
+                            "endPort": 30000
+                        },
+                        "ephemeralPorts": {
+                            "startPort": 49152,
+                            "endPort": 65534
+                        },
+                        "isPrimary": true,
+                        "vmInstanceCount": 5,
+                        "durabilityLevel": "Bronze"
+                    }
+                ],
+                "vmImage": "Windows",
+                "reliabilityLevel": "Silver",
+                "upgradeMode": "Automatic"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_fymlxwznkmvse2_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Storage/storageAccounts/fymlxwznkmvse100'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_fymlxwznkmvse100_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "westeurope",
+            "tags": {
+                "clusterName": "hackfest-sf-c1",
+                "resourceType": "Service Fabric"
+            },
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Storage/storageAccounts/fymlxwznkmvse101'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_fymlxwznkmvse101_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "westeurope",
+            "tags": {
+                "clusterName": "hackfest-sf-c1",
+                "resourceType": "Service Fabric"
+            },
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Storage/storageAccounts/fymlxwznkmvse102'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_fymlxwznkmvse102_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "westeurope",
+            "tags": {
+                "clusterName": "hackfest-sf-c1",
+                "resourceType": "Service Fabric"
+            },
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Storage/storageAccounts/fymlxwznkmvse103'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_fymlxwznkmvse103_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "westeurope",
+            "tags": {
+                "clusterName": "hackfest-sf-c1",
+                "resourceType": "Service Fabric"
+            },
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Storage/storageAccounts/fymlxwznkmvse104'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_fymlxwznkmvse104_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "westeurope",
+            "tags": {
+                "clusterName": "hackfest-sf-c1",
+                "resourceType": "Service Fabric"
+            },
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Storage/storageAccounts/fymlxwznkmvse2'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_fymlxwznkmvse2_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "westeurope",
+            "tags": {
+                "clusterName": "hackfest-sf-c1",
+                "resourceType": "Service Fabric"
+            },
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/69a92802-8060-4273-9c23-95547f994da1/resourceGroups/hackfest-sf-c1-westeurope-rg/providers/Microsoft.Storage/storageAccounts/fymlxwznkmvse3'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_fymlxwznkmvse3_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "westeurope",
+            "tags": {
+                "clusterName": "hackfest-sf-c1",
+                "resourceType": "Service Fabric"
+            },
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        }
+    ]
+}

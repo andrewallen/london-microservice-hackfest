@@ -1,0 +1,99 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachineScaleSets_nt1vm_name": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_name": {
+            "value": null
+        },
+        "publicIPAddresses_PublicIP_LB_FE_0_name": {
+            "value": null
+        },
+        "virtualNetworks_VNet_name": {
+            "value": null
+        },
+        "clusters_hackfest_sf_c1_name": {
+            "value": null
+        },
+        "storageAccounts_fymlxwznkmvse100_name": {
+            "value": null
+        },
+        "storageAccounts_fymlxwznkmvse101_name": {
+            "value": null
+        },
+        "storageAccounts_fymlxwznkmvse102_name": {
+            "value": null
+        },
+        "storageAccounts_fymlxwznkmvse103_name": {
+            "value": null
+        },
+        "storageAccounts_fymlxwznkmvse104_name": {
+            "value": null
+        },
+        "storageAccounts_fymlxwznkmvse2_name": {
+            "value": null
+        },
+        "storageAccounts_fymlxwznkmvse3_name": {
+            "value": null
+        },
+        "virtualMachineScaleSets_nt1vm_id": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_1": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_2": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_3": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_4": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_5": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_6": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_7": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_8": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_9": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_10": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_11": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_12": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_13": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_14": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_15": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_16": {
+            "value": null
+        },
+        "loadBalancers_LB_hackfest_sf_c1_nt1vm_id_17": {
+            "value": null
+        }
+    }
+}
