@@ -7,7 +7,7 @@
 $Subscription = "Internal Development (anallen@microsoft.com)"
 $Region = "westeurope"
 
-$SfClusterName = "hackfest-sf-c1" # Region name not included in cluster name, as already part of 
+$SfClusterName = "hackfest-sf-c1"
 $SfClusterSize = 5 # 1 & 3 node clusters considered non-production; production >= 5
 $SfResourceGroupName = "$SfClusterName-$Region-rg"
 
@@ -17,11 +17,18 @@ $VmUserName = "localAdmin"
 $VmPassword = "Password1234!" | ConvertTo-SecureString -AsPlainText -Force
 
 $KeyVaultName = "hackfest-kv-$Region" # Key Vault has to be in the same region as the SF cluster
-$KeyVaultResouceGroupName = "$KeyVaultName-rg"
+$KeyVaultResouceGroupName = "$KeyVaultName-rg" # Key Vault should be in seperate RG from SF cluster
 
 $CertificateOutputFolder = "C:\Certs"
 $CertificatePassword = "Password1234!" | ConvertTo-SecureString -AsPlainText -Force
 $CertificateSubjectName = "$SfResourceGroupName.$Region.cloudapp.azure.com"
+
+# Check $CertificateOutputFolder folder exists and create if required
+
+If(!(test-path $CertificateOutputFolder))
+{
+	New-Item -ItemType Directory -Force -Path $path
+}
 
 # Authenticate and select appropriate subscription:
 
