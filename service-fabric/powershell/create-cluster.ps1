@@ -7,7 +7,7 @@
 $Subscription = "Internal Development (anallen@microsoft.com)"
 $Region = "westeurope"
 
-$SfClusterName = "hackfest-sf-c1"
+$SfClusterName = "hackfest-sf-c1" # change to a globally unique value
 $SfClusterSize = 5 # 1 & 3 node clusters considered non-production; production >= 5
 $SfResourceGroupName = "$SfClusterName-$Region-rg"
 
