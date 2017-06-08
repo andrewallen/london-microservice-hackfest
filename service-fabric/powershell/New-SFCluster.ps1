@@ -137,8 +137,9 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $sfResourceGroupName -Certifi
 
 # Import certificate into browser to be able to authenticate to SF Explorer - required to access SfExplorer
 
-#Import-PfxCertificate -FilePath $CertificateOutputFolder\$SfClusterName*.pfx -Password CertificatePassword -CertStoreLocation Cert:\CurrentUser\My -Exportable
+Write-Host "* Build complete! Be sure to import certificate from CertificateSavedLocalPath above."
+#Import-PfxCertificate -FilePath $certificateOutputFolder\$sfClusterName*.pfx -Password $certificatePasswordHash -CertStoreLocation Cert:\CurrentUser\My -Exportable
 
-# To clean up - also remember to remove the browser certificate
+# To clean up - also remember to remove the certificate from any machines where it has been imported.
 
 #Remove-AzureRmResourceGroup -Name $SfResourceGroupName -Force # removes all SF resources, but Key Vault is assumed to be retained
