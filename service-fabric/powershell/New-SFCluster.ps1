@@ -51,14 +51,14 @@
 param (
 	[Parameter(Mandatory=$True)]
 	[string]
-	$subscriptionId = "69a92802-8060-4273-9c23-95547f994da1",
+	$subscriptionId,
 
 	[string]
 	$region = "westeurope",
 
 	[Parameter(Mandatory=$True)]
 	[string]
-	$sfClusterName = "hackfest-sf-c1",
+	$sfClusterName,
 
 	[string]
 	$sfClusterSize = 5,
@@ -80,7 +80,7 @@ param (
 
 	[Parameter(Mandatory=$True)]
 	[string]
-	$keyVaultName = "hackfest-kv-$region",
+	$keyVaultName,
 
 	[string]
 	$keyVaultResouceGroupName = "$keyVaultName-rg",
